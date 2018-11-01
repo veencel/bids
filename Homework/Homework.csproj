@@ -43,8 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompetitionManager.cs" />
+    <Compile Include="Implementations\CompetitionFileReader.cs" />
+    <Compile Include="Implementations\CompetitionFileWriter.cs" />
+    <Compile Include="Interfaces\ICompetitionReader.cs" />
+    <Compile Include="Interfaces\ICompetitionResultWriter.cs" />
+    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\Combination.cs" />
+    <Compile Include="Models\CompetitionResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Array.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

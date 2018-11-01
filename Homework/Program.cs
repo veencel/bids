@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Homework.Implementations;
 
 namespace Homework
 {
@@ -10,6 +6,12 @@ namespace Homework
     {
         static void Main(string[] args)
         {
+            var competitionManager = new CompetitionManager(
+                new CompetitionFileReader(@"./LICIT.BE"),
+                new CompetitionResultFileWriter(@"./LICIT.KI")
+            );
+
+            competitionManager.Execute();
         }
     }
 }
