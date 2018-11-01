@@ -1,6 +1,4 @@
 ﻿using Homework.Implementations;
-using Homework.Models;
-using Homework.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HomeworkTests.Unit

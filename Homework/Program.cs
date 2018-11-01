@@ -2,13 +2,13 @@
 
 namespace Homework
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var competitionManager = new CompetitionManager(
-                new CompetitionFileReader(@"./LICIT.BE"),
-                new CompetitionResultFileWriter(@"./LICIT.KI")
+                new CompetitionFileReader("./LICIT.BE"),
+                new CompetitionResultFileWriter("./LICIT.KI")
             );
 
             competitionManager.Execute();

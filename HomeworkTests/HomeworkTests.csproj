@@ -59,8 +59,12 @@
     <Compile Include="Unit\CombinationTest.cs" />
     <Compile Include="Unit\CompetitionFileReaderTest.cs" />
     <Compile Include="Unit\CompetitionResultFileWriterTest.cs" />
+    <Compile Include="Unit\ProgramTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="LICIT.BE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\TEST.INPUT">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

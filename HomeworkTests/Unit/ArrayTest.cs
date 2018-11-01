@@ -1,5 +1,4 @@
-﻿using System;
-using Homework.Utils;
+﻿using Homework.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HomeworkTests.Unit
