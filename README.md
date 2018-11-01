@@ -8,7 +8,7 @@ Please read the specification [here](https://github.com/veencel/Bid/blob/master/
 
 ## Authors
 
-* **Vencel Kátai** *
+* **Vencel Kátai**
 
 ## License
 
