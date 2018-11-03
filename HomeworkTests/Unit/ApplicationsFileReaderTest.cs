@@ -4,14 +4,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HomeworkTests.Unit
 {
     [TestClass]
-    public class CompetitionFileReaderTest
+    public class ApplicationsFileReaderTest
     {
-        CompetitionFileReader reader;
+        ApplicationsFileReader reader;
 
         [TestInitialize]
         public void Setup()
         {
-            reader = new CompetitionFileReader("Resources/TEST.INPUT");
+            reader = new ApplicationsFileReader(@"Resources\TEST.INPUT");
         }
 
         [TestMethod]

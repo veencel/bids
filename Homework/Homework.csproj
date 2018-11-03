@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompetitionManager.cs" />
-    <Compile Include="Implementations\CompetitionFileReader.cs" />
-    <Compile Include="Implementations\CompetitionFileWriter.cs" />
-    <Compile Include="Interfaces\ICompetitionReader.cs" />
+    <Compile Include="Implementations\ApplicationsFileReader.cs" />
+    <Compile Include="Implementations\CompetitionResultFileWriter.cs" />
+    <Compile Include="Interfaces\IApplicationsReader.cs" />
     <Compile Include="Interfaces\ICompetitionResultWriter.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Combination.cs" />

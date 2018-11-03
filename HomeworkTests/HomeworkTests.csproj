@@ -57,7 +57,7 @@
     <Compile Include="Unit\ArrayTest.cs" />
     <Compile Include="Unit\CompetitionResultTest.cs" />
     <Compile Include="Unit\CombinationTest.cs" />
-    <Compile Include="Unit\CompetitionFileReaderTest.cs" />
+    <Compile Include="Unit\ApplicationsFileReaderTest.cs" />
     <Compile Include="Unit\CompetitionResultFileWriterTest.cs" />
     <Compile Include="Unit\ProgramTest.cs" />
   </ItemGroup>

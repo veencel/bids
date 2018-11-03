@@ -6,10 +6,10 @@ namespace Homework
 {
     public class CompetitionManager
     {
-        ICompetitionReader _reader { get; }
+        IApplicationsReader _reader { get; }
         ICompetitionResultWriter _writer { get; }
 
-        public CompetitionManager(ICompetitionReader reader, ICompetitionResultWriter writer)
+        public CompetitionManager(IApplicationsReader reader, ICompetitionResultWriter writer)
         {
             _reader = reader;
             _writer = writer;
@@ -17,9 +17,9 @@ namespace Homework
 
         public void Execute()
         {
-            var competitions = _reader.Read();
+            var applications = _reader.Read();
 
-            var combination = DetermineWinnerCombination(competitions);
+            var combination = DetermineWinnerCombination(applications);
 
             _writer.Write(new CompetitionResult(combination.Applications));
         }

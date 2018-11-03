@@ -4,7 +4,7 @@ using Homework.Utils;
 
 namespace HomeworkTests.Mocks
 {
-    class MockCompetitionReader: ICompetitionReader
+    class MockCompetitionReader: IApplicationsReader
     {
         Array<Application> _applications;
 

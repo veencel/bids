@@ -10,7 +10,7 @@ namespace HomeworkTests.Unit
     [TestClass]
     public class CompetitionResultFileWriterTest
     {
-        string path = "./TEST.OUTPUT";
+        string path = "TEST.OUTPUT";
         CompetitionResult result;
         CompetitionResultFileWriter writer;
 

@@ -12,7 +12,7 @@ namespace HomeworkTests.Unit
         {
             Program.Main(new string[0]);
 
-            Assert.IsTrue(File.Exists("./LICIT.KI"));
+            Assert.IsTrue(File.Exists("LICIT.KI"));
         }
     }
 }
