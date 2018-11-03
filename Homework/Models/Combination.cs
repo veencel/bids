@@ -11,39 +11,23 @@ namespace Homework.Models
             Applications = applications;
         }
 
-        public Combination Copy()
+        public Combination(Combination combination)
         {
-            var copy = new Array<Application>();
+            var applications = new Array<Application>();
 
-            foreach (var application in Applications)
+            foreach (var application in combination.Applications)
             {
-                copy.Add(application);
+                applications.Add(application);
             }
 
-            return new Combination(copy);
+            Applications = applications;
         }
 
-        public void Add(Application application)
+        public Combination Add(Application application)
         {
             Applications.Add(application);
-        }
 
-        public bool SameAs(Combination combination)
-        {
-            if (combination.Applications.Length != Applications.Length)
-            {
-                return false;
-            }
-
-            foreach (var application in Applications)
-            {
-                if (! combination.Applications.Has((app) => app.Identifier == application.Identifier))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return this;
         }
 
         public bool Contains(Application application)

@@ -26,7 +26,7 @@ namespace Homework
 
         private Combination DetermineWinnerCombination(Array<Application> applications)
         {
-            var combinations = GetIndependentApplicationCombinations(applications);
+            var combinations = GetCombinations(applications);
 
             return combinations.Max((Combination combination, Combination max) =>
             {
@@ -39,40 +39,40 @@ namespace Homework
             });
         }
 
-        private Array<Combination> GetIndependentApplicationCombinations(Array<Application> applications)
+        private Array<Combination> GetCombinations(Array<Application> applications)
         {
-            var combinations = applications
-                .Map((application) => new Combination(new Array<Application>(new[] { application })));
+            var combinations = new Array<Combination>();
 
-            bool newCreated;
-
-            do
+            foreach (var application in applications)
             {
-                newCreated = false;
+                combinations.Merge(CreateCombinations(application, applications));
+            }
 
-                foreach (var combination in combinations)
+            return combinations;
+        }
+
+        private Array<Combination> CreateCombinations(Application application, Array<Application> applications)
+        {
+            return UnfoldCombination(
+                new Combination(new Array<Application>(new[] { application })),
+                applications
+            );
+        }
+
+        private Array<Combination> UnfoldCombination(Combination combination, Array<Application> applications)
+        {
+            Array<Combination> combinations = new Array<Combination>(new[] { combination });
+
+            foreach (var application in applications)
+            {
+                if (combination.Contains(application) || combination.Intersects(application))
                 {
-                    foreach (var application in applications)
-                    {
-                        if (combination.Contains(application) || combination.Intersects(application))
-                        {
-                            continue;
-                        }
-
-                        var copy = combination.Copy();
-                        copy.Applications.Add(application);
-
-                        if (combinations.Has((comb) => comb.SameAs(copy)))
-                        {
-                            continue;
-                        }
-
-                        combinations.Add(copy);
-
-                        newCreated = true;
-                    }
+                    continue;
                 }
-            } while (newCreated);
+
+                Combination newCombination = new Combination(combination).Add(application);
+                combinations.Merge(UnfoldCombination(newCombination, applications));
+            }
 
             return combinations;
         }

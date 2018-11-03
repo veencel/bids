@@ -57,19 +57,6 @@ namespace Homework.Utils
             return items;
         }
 
-        public bool Has(Func<T, bool> predicate)
-        {
-            foreach (T item in items)
-            {
-                if (predicate.Invoke(item))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         public Array<T> Merge(Array<T> other)
         {
             foreach (T item in other)
