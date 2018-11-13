@@ -7,7 +7,7 @@ namespace Homework.Implementations
 {
     public class ApplicationsFileReader: IApplicationsReader
     {
-        readonly string _path;
+        private readonly string _path;
 
         public ApplicationsFileReader(string path)
         {

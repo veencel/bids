@@ -6,7 +6,7 @@ namespace Homework.Implementations
 {
     public class CompetitionResultFileWriter: ICompetitionResultWriter
     {
-        readonly string _path;
+        private readonly string _path;
 
         public CompetitionResultFileWriter(string path)
         {

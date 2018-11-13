@@ -6,18 +6,18 @@ namespace HomeworkTests.Unit
     [TestClass]
     public class ApplicationsFileReaderTest
     {
-        ApplicationsFileReader reader;
+        private ApplicationsFileReader _reader;
 
         [TestInitialize]
         public void Setup()
         {
-            reader = new ApplicationsFileReader(@"Resources\TEST.INPUT");
+            _reader = new ApplicationsFileReader(@"Resources\TEST.INPUT");
         }
 
         [TestMethod]
         public void ItCanReadTheApplicationsFromAFile()
         {
-            var applications = reader.Read();
+            var applications = _reader.Read();
 
             Assert.AreEqual(2, applications.Length);
 
