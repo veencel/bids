@@ -11,18 +11,18 @@ namespace HomeworkTests.Unit
     public class CompetitionResultFileWriterTest
     {
         string path = "TEST.OUTPUT";
-        CompetitionResult result;
-        CompetitionResultFileWriter writer;
+        private CompetitionResult _result;
+        private CompetitionResultFileWriter _writer;
 
         [TestInitialize]
         public void Setup()
         {
-            result = new CompetitionResult(new Array<Application>(new[] {
+            _result = new CompetitionResult(new Array<Application>(new[] {
                 new Application(1, 2, 3, 100),
                 new Application(2, 4, 10, 200)
             }));
 
-            writer = new CompetitionResultFileWriter(path);
+            _writer = new CompetitionResultFileWriter(path);
         }
 
         [TestCleanup]
@@ -37,7 +37,7 @@ namespace HomeworkTests.Unit
         [TestMethod]
         public void ItCanWriteTheCompetitionResultToAFile()
         {
-            writer.Write(result);
+            _writer.Write(_result);
 
             string content = File.ReadAllText(path);
 

@@ -7,28 +7,28 @@ namespace HomeworkTests.Unit
     [TestClass]
     public class CompetitionResultTest
     {
-        Array<Application> winnerApplications;
-        CompetitionResult result;
+        private Array<Application> _winnerApplications;
+        private CompetitionResult _result;
 
         [TestInitialize]
         public void Setup()
         {
-            winnerApplications = new Array<Application>(
+            _winnerApplications = new Array<Application>(
                 new[] { new Application(1, 2, 3, 4), new Application(5, 6, 7, 8) }
             );
-            result = new CompetitionResult(winnerApplications);
+            _result = new CompetitionResult(_winnerApplications);
         }
 
         [TestMethod]
         public void ItHasTheWinnerApplications()
         {
-            Assert.AreEqual(winnerApplications, result.WinnerApplications);
+            Assert.AreEqual(_winnerApplications, _result.WinnerApplications);
         }
 
         [TestMethod]
         public void ItCanCalculateTheProfit()
         {
-            Assert.AreEqual(12, result.Profit);
+            Assert.AreEqual(12, _result.Profit);
         }
     }
 }

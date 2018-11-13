@@ -7,31 +7,29 @@ namespace Homework.Utils
     {
         public T this[int key]
         {
-            get { return items[key]; }
-            set { items[key] = value; }
+            get => _items[key];
+            set => _items[key] = value;
         }
 
-        public int Length {
-            get { return items.Length; }
-        }
+        public int Length => _items.Length;
 
-        T[] items;
+        T[] _items;
 
         public Array()
         {
-            items = new T[0];
+            _items = new T[0];
         }
 
         public Array(T[] items)
         {
-            this.items = items;
+            this._items = items;
         }
 
         public Array<T> Add(T item)
         {
             Expand();
 
-            items[Length - 1] = item;
+            _items[Length - 1] = item;
 
             return this;
         }
@@ -40,21 +38,21 @@ namespace Homework.Utils
         {
             T[] newItems = new T[Length - 1];
 
-            T first = items[0];
+            T first = _items[0];
 
             for (int i = 1; i < Length; i++)
             {
-                newItems[i - 1] = items[i];
+                newItems[i - 1] = _items[i];
             }
 
-            items = newItems;
+            _items = newItems;
 
             return first;
         }
 
         public T[] All()
         {
-            return items;
+            return _items;
         }
 
         public Array<T> Merge(Array<T> other)
@@ -71,7 +69,7 @@ namespace Homework.Utils
         {
             var result = new Array<R>();
 
-            foreach (T item in items)
+            foreach (T item in _items)
             {
                 result.Add(callback.Invoke(item));
             }
@@ -81,7 +79,7 @@ namespace Homework.Utils
 
         public R Reduce<R>(Func<T, R, R> callback, R carry)
         {
-            foreach (T item in items)
+            foreach (T item in _items)
             {
                 carry = callback(item, carry);
             }
@@ -93,7 +91,7 @@ namespace Homework.Utils
         {
             var result = new Array<T>();
 
-            foreach (T item in items)
+            foreach (T item in _items)
             {
                 if (callback.Invoke(item))
                 {
@@ -106,13 +104,13 @@ namespace Homework.Utils
 
         public T Max(Func<T, T, Boolean> callback)
         {
-            T max = items[0];
+            T max = _items[0];
 
-            for (int i = 1; i < items.Length; ++i)
+            for (int i = 1; i < _items.Length; ++i)
             {
-                if (callback(items[i], max))
+                if (callback(_items[i], max))
                 {
-                    max = items[i];
+                    max = _items[i];
                 }
             }
 
@@ -123,21 +121,21 @@ namespace Homework.Utils
         {
             for(int i = 0; i < Length; ++i)
             {
-                yield return items[i];
+                yield return _items[i];
             }
         }
 
 
         private void Expand()
         {
-            T[] expanded = new T[items.Length + 1];
+            T[] expanded = new T[_items.Length + 1];
 
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < _items.Length; i++)
             {
-                expanded[i] = items[i];
+                expanded[i] = _items[i];
             }
 
-            items = expanded;
+            _items = expanded;
         }
     }
 }

@@ -4,9 +4,9 @@ using Homework.Utils;
 
 namespace HomeworkTests.Mocks
 {
-    class MockCompetitionReader: IApplicationsReader
+    internal class MockCompetitionReader: IApplicationsReader
     {
-        Array<Application> _applications;
+        private readonly Array<Application> _applications;
 
         public MockCompetitionReader(Array<Application> applications)
         {

@@ -6,8 +6,8 @@ namespace Homework
 {
     public class CompetitionManager
     {
-        IApplicationsReader _reader { get; }
-        ICompetitionResultWriter _writer { get; }
+        private readonly IApplicationsReader _reader;
+        private readonly ICompetitionResultWriter _writer;
 
         public CompetitionManager(IApplicationsReader reader, ICompetitionResultWriter writer)
         {
@@ -30,12 +30,12 @@ namespace Homework
 
             return combinations.Max((Combination combination, Combination max) =>
             {
-                int sumProfit(Application application, int carry)
+                int SumProfit(Application application, int carry)
                 {
                     return carry + application.Price;
                 }
 
-                return combination.Applications.Reduce(sumProfit, 0) > max.Applications.Reduce(sumProfit, 0);
+                return combination.Applications.Reduce(SumProfit, 0) > max.Applications.Reduce(SumProfit, 0);
             });
         }
 
@@ -61,7 +61,7 @@ namespace Homework
 
         private Array<Combination> UnfoldCombination(Combination combination, Array<Application> applications)
         {
-            Array<Combination> combinations = new Array<Combination>(new[] { combination });
+            var combinations = new Array<Combination>(new[] { combination });
 
             foreach (var application in applications)
             {
@@ -70,7 +70,7 @@ namespace Homework
                     continue;
                 }
 
-                Combination newCombination = new Combination(combination).Add(application);
+                var newCombination = new Combination(combination).Add(application);
                 combinations.Merge(UnfoldCombination(newCombination, applications));
             }
 

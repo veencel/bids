@@ -9,9 +9,9 @@ namespace HomeworkTests.Unit
     [TestClass]
     public class CompetitionManagerTest
     {
-        MockCompetitionReader reader;
-        MockCompetitionResultWriter writer;
-        CompetitionManager manager;
+        private MockCompetitionReader _reader;
+        private MockCompetitionResultWriter _writer;
+        private CompetitionManager _manager;
 
         [TestInitialize]
         public void Setup()
@@ -23,18 +23,18 @@ namespace HomeworkTests.Unit
                 new Application(4, 4, 4, 6000),
             });
 
-            reader = new MockCompetitionReader(applications);
-            writer = new MockCompetitionResultWriter();
+            _reader = new MockCompetitionReader(applications);
+            _writer = new MockCompetitionResultWriter();
 
-            manager = new CompetitionManager(reader, writer);
+            _manager = new CompetitionManager(_reader, _writer);
         }
 
         [TestMethod]
         public void ItCanExecuteACompetition()
         {
-            manager.Execute();
+            _manager.Execute();
 
-            var result = writer.Result;
+            var result = _writer.Result;
 
             Assert.AreEqual(2, result.WinnerApplications.Length);
             Assert.AreEqual(2, result.WinnerApplications[0].Identifier);
